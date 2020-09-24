@@ -10,6 +10,7 @@ div.innerHTML = `
 `
 
 const button = document.querySelector('.see-more')
+const button2 = document.querySelector('.see-less')
 
 
 const createParagraph = (parent) => {
@@ -18,8 +19,16 @@ const createParagraph = (parent) => {
   parent.appendChild(p)
 }
 
-
+// Au click on ajouter un article
 button.addEventListener('click', (event) => {
-  console.log('click', event)
   createParagraph(feed)
+})
+
+// Au click on supprime un article
+button2.addEventListener('click', (event) => {
+  const allParagraphs = feed.querySelectorAll('p')
+  const lastElement = allParagraphs[allParagraphs.length - 1]
+  if (lastElement) {
+    feed.removeChild(lastElement)
+  }
 })
