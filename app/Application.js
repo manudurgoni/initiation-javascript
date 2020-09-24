@@ -1,7 +1,7 @@
 class Application {
   constructor() {
     console.log('app::init')
-
+    this.isPress = false
     this.dom = {
       circle: document.querySelector('.circle')
     }
@@ -39,10 +39,32 @@ class Application {
     this.dom.circle.style.backgroundColor = ''
   }
 
+  goLeft() {}
+  goRight() {}
+  goUp() {}
+  goDown() {}
+
   onKeyDown = (e) => {
     if (this.isPress) return
-    console.log(e.key)
-    console.log(e.keyCode)
+
+    switch (e.keyCode) {
+      case 37:
+        // va à gauche
+        this.goLeft()
+        break;
+      case 38:
+        // va en haut
+        this.goUp()
+        break;
+      case 39:
+        // va à droite
+        this.goRight()
+        break;
+      case 40:
+        // va en bas
+        this.goDown()
+        break;
+    }
 
     this.isPress = true
   }
