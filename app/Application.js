@@ -2,6 +2,10 @@ class Application {
   constructor() {
     console.log('app::init')
     this.isPress = false
+    this.position = {
+      x: 0,
+      y: 0
+    }
     this.dom = {
       circle: document.querySelector('.circle')
     }
@@ -39,10 +43,22 @@ class Application {
     this.dom.circle.style.backgroundColor = ''
   }
 
-  goLeft() {}
-  goRight() {}
-  goUp() {}
-  goDown() {}
+  goLeft() {
+    this.position.x -= 100
+  }
+  goRight() {
+    this.position.x += 100
+  }
+  goUp() {
+    this.position.y -= 100
+  }
+  goDown() {
+    this.position.y += 100
+  }
+
+  move() {
+    this.dom.circle.style.transform = `translate(${this.position.x}px, ${this.position.y}px)`
+  }
 
   onKeyDown = (e) => {
     if (this.isPress) return
@@ -65,6 +81,8 @@ class Application {
         this.goDown()
         break;
     }
+
+    this.move()
 
     this.isPress = true
   }
