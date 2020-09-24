@@ -22,6 +22,7 @@ const createParagraph = (parent) => {
 // Au click on ajouter un article
 button.addEventListener('click', (event) => {
   createParagraph(feed)
+  button.style.transform = `translate(${Math.random() * 200}px, ${Math.random() * 200}px)`
 })
 
 // Au click on supprime un article
