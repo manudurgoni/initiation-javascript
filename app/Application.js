@@ -25,6 +25,7 @@ class Application {
     this.dom.circle.addEventListener('mouseleave', this.onMouseLeave)
 
     document.addEventListener('keydown', this.onKeyDown)
+    document.addEventListener('keyup', this.onKeyUp)
   }
 
   setRandomColor() {
@@ -39,7 +40,15 @@ class Application {
   }
 
   onKeyDown = (e) => {
+    if (this.isPress) return
     console.log(e.key)
+    console.log(e.keyCode)
+
+    this.isPress = true
+  }
+  
+  onKeyUp = (e) => {
+    this.isPress = false
   }
 
   onMouseEnter = (e) => {
