@@ -26,7 +26,10 @@ class Application {
   }
 
   setRandomColor() {
-    this.dom.circle.style.backgroundColor = `#000`// change la couleur de manière aleatoire
+    let randomColorR = 255 * Math.random()
+    let randomColorG = 255 * Math.random()
+    let randomColorB = 255 * Math.random()
+    this.dom.circle.style.backgroundColor = `rgb(${randomColorR}, ${randomColorG}, ${randomColorB})`// change la couleur de manière aleatoire
   }
 
   clearColor() {

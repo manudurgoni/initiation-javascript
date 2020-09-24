@@ -15,4 +15,5 @@ body {
   height: 150px;
   background-color: red;
   border-radius: 50%;
+  outline: blue;
 }
