@@ -51,16 +51,27 @@ class Application {
 
   goLeft() {
     this.position.x -= 100
+    
+    const minX = 0
+    this.position.x = Math.max(this.position.x, minX)
   }
   goRight() {
-    if (this.position.x > (this.screen.width - this.dom.circle.offsetWidth)) return
     this.position.x += 100
+
+    const maxX = (this.screen.width - this.dom.circle.offsetWidth)
+    this.position.x = Math.min(this.position.x, maxX)
   }
   goUp() {
     this.position.y -= 100
+
+    const minY = 0
+    this.position.y = Math.max(this.position.y, minY)
   }
   goDown() {
     this.position.y += 100
+
+    const maxY = (this.screen.height - this.dom.circle.offsetHeight)
+    this.position.y = Math.min(this.position.y, maxY)
   }
 
   move() {
