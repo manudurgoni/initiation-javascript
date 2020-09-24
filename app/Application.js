@@ -23,6 +23,8 @@ class Application {
      */
     this.dom.circle.addEventListener('mouseenter', this.onMouseEnter)
     this.dom.circle.addEventListener('mouseleave', this.onMouseLeave)
+
+    document.addEventListener('keydown', this.onKeyDown)
   }
 
   setRandomColor() {
@@ -34,6 +36,10 @@ class Application {
 
   clearColor() {
     this.dom.circle.style.backgroundColor = ''
+  }
+
+  onKeyDown = (e) => {
+    console.log(e.key)
   }
 
   onMouseEnter = (e) => {
