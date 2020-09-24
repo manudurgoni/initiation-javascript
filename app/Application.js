@@ -25,12 +25,22 @@ class Application {
     this.dom.circle.addEventListener('mouseleave', this.onMouseLeave)
   }
 
+  setRandomColor() {
+    this.dom.circle.style.backgroundColor = `#000`// change la couleur de manière aleatoire
+  }
+
+  clearColor() {
+    this.dom.circle.style.backgroundColor = ''
+  }
+
   onMouseEnter = (e) => {
     console.log('circle enter')
+    this.setRandomColor()
   }
   
   onMouseLeave = (e) => {
     console.log('circle leave')
+    this.clearColor()
   }
 }
 
