@@ -19,7 +19,7 @@ const createParagraph = (parent) => {
 }
 
 
-button.addEventListener('click', () => {
-  console.log('click')
+button.addEventListener('click', (event) => {
+  console.log('click', event)
   createParagraph(feed)
 })
