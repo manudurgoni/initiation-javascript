@@ -1,6 +1,7 @@
 class Application {
   constructor() {
     console.log('app::init')
+
     this.isPress = false
     this.position = {
       x: 0,
@@ -51,7 +52,7 @@ class Application {
 
   goLeft() {
     this.position.x -= 100
-    
+
     const minX = 0
     this.position.x = Math.max(this.position.x, minX)
   }
@@ -75,7 +76,14 @@ class Application {
   }
 
   move() {
-    this.dom.circle.style.transform = `translate(${this.position.x}px, ${this.position.y}px)`
+    // this.dom.circle.style.transform = `translate(${this.position.x}px, ${this.position.y}px)`
+
+    gsap.to(this.dom.circle, {
+      x: this.position.x,
+      y: this.position.y,
+      duration: 2.5,
+      ease: Elastic.easeOut.config( 1, 0.3)
+    })
   }
 
   onKeyDown = (e) => {
