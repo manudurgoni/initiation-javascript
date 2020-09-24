@@ -6,6 +6,12 @@ class Application {
       x: 0,
       y: 0
     }
+
+    this.screen = {
+      width: window.innerWidth,
+      height: window.innerHeight
+    }
+    
     this.dom = {
       circle: document.querySelector('.circle')
     }
@@ -47,6 +53,7 @@ class Application {
     this.position.x -= 100
   }
   goRight() {
+    if (this.position.x > (this.screen.width - this.dom.circle.offsetWidth)) return
     this.position.x += 100
   }
   goUp() {
