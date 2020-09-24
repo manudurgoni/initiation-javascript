@@ -1,4 +1,5 @@
 // Creer mes 3 paragraphes
+const feed = document.querySelector('.feed')
 const div = document.createElement('div')
 div.innerHTML = `
   <p>Voluptate sit reprehenderit proident magna et excepteur. Occaecat minim commodo enim nisi ex est officia consequat elit. Occaecat mollit commodo duis incididunt minim esse culpa mollit qui culpa dolor. Do aliqua qui aute consequat sunt dolore veniam est ullamco enim.</p>
@@ -10,6 +11,15 @@ div.innerHTML = `
 
 const button = document.querySelector('.see-more')
 
+
+const createParagraph = (parent) => {
+  const p = document.createElement('p')
+  p.innerHTML = 'Fugiat enim nostrud ea dolor excepteur id veniam cupidatat exercitation. Lorem pariatur adipisicing anim exercitation pariatur Lorem'
+  parent.appendChild(p)
+}
+
+
 button.addEventListener('click', () => {
   console.log('click')
+  createParagraph(feed)
 })
