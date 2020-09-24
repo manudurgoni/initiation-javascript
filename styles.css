@@ -9,3 +9,10 @@ body {
 .even-paragraph {
   background-color: antiquewhite;
 }
+
+.circle {
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  border-radius: 50%;
+}
