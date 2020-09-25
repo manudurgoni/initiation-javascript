@@ -17,6 +17,10 @@ class Application {
       circle: document.querySelector('.circle')
     }
 
+    this.size = {
+      circle: this.dom.circle.offsetWidth
+    }
+
     this.addListeners()
   }
 
@@ -36,6 +40,7 @@ class Application {
     this.dom.circle.addEventListener('mouseleave', this.onMouseLeave)
 
     window.addEventListener('resize', this.onResize)
+    window.addEventListener('mousemove', this.onMouseMove)
 
     document.addEventListener('keydown', this.onKeyDown)
     document.addEventListener('keyup', this.onKeyUp)
@@ -61,7 +66,7 @@ class Application {
   goRight() {
     this.position.x += 100
 
-    const maxX = (this.screen.width - this.dom.circle.offsetWidth)
+    const maxX = (this.screen.width - this.size.circle)
     this.position.x = Math.min(this.position.x, maxX)
   }
   goUp() {
@@ -73,7 +78,7 @@ class Application {
   goDown() {
     this.position.y += 100
 
-    const maxY = (this.screen.height - this.dom.circle.offsetHeight)
+    const maxY = (this.screen.height - this.size.circle)
     this.position.y = Math.min(this.position.y, maxY)
   }
 
@@ -128,10 +133,22 @@ class Application {
     this.clearColor()
   }
 
+  onMouseMove = (e) => {
+    console.log('move', e)
+    this.position.x = e.clientX - (this.size.circle * 0.5)
+    this.position.y = e.clientY - (this.size.circle * 0.5)
+
+    this.move()
+  }
+  
   onResize = () => {
     console.log('resize', window.innerWidth)
     this.screen.width = window.innerWidth
     this.screen.height = window.innerHeight
+
+    this.size = {
+      circle: this.dom.circle.offsetWidth
+    }
   }
 }
 

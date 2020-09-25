@@ -13,8 +13,8 @@ body {
 }
 
 .circle {
-  width: 150px;
-  height: 150px;
+  width: 10vw;
+  height: 10vw;
   background-color: red;
   border-radius: 50%;
   outline: blue;
