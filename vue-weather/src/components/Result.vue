@@ -20,20 +20,24 @@ export default {
       default: null
     }
   },
-  data() {
-    
-  },
+ 
   mounted() {
     if (this.city) {
       mapboxgl.accessToken = 'pk.eyJ1IjoibWFudWR1cmdvbmkiLCJhIjoiY2pxejVnOWdnMGEyNDQycG9tcTI3MDVlbCJ9.WPrLAimZF5EcdDGcHdQvMw';
       // eslint-disable-next-line no-unused-vars
-      const map = new mapboxgl.Map({
+      this.map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: [this.city.coord.lon, this.city.coord.lat],
         zoom: 9
       });
     }
+  },
+
+  updated() {
+    this.map.flyTo({
+      center: [this.city.coord.lon, this.city.coord.lat]
+    })
   }
 }
 </script>
