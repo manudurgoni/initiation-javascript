@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
 </head>
 <body>
   <div class="container">
@@ -15,7 +17,17 @@
       <input type="submit" value="Ok" class="btn-submit">
     </form>
 
-    <div class="result">
+    
+  </div>
+
+  <div class="error none">
+    <div class="container">
+      <h2>Cette ville n'existe pas</h2>
+    </div>
+  </div>
+
+  <div class="result hidden">
+    <div class="container">
       <h2>Ville</h2>
       <div class="temperature">
         <p class="temperature__current">temp current</p>
@@ -24,6 +36,8 @@
       </div>
     </div>
   </div>
+
+  
   <script src="App.js"></script>
 </body>
 </html>

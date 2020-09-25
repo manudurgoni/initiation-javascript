@@ -13,8 +13,8 @@ body {
 
 .container {
   max-width: 960px;
+  padding: 40px;
   margin: 0 auto;
-  margin-top: 20vh;
 }
 
 input {
@@ -22,4 +22,21 @@ input {
   margin: 10px 0;
   width: 100%;
   padding: 10px;
+}
+
+.result {
+  background-color: rgb(253 241 226);
+}
+
+.error {
+  background-color: rgb(253 227 226);
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.none {
+  display: none;
 }
