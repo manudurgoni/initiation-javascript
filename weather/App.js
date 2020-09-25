@@ -10,6 +10,7 @@ class App {
     }
 
     this.addListeners()
+    console.log(this)
   }
 
   addListeners() {
