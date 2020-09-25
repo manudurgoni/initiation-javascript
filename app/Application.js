@@ -35,6 +35,8 @@ class Application {
     this.dom.circle.addEventListener('mouseenter', this.onMouseEnter)
     this.dom.circle.addEventListener('mouseleave', this.onMouseLeave)
 
+    window.addEventListener('resize', this.onResize)
+
     document.addEventListener('keydown', this.onKeyDown)
     document.addEventListener('keyup', this.onKeyUp)
   }
@@ -77,7 +79,6 @@ class Application {
 
   move() {
     // this.dom.circle.style.transform = `translate(${this.position.x}px, ${this.position.y}px)`
-
     gsap.to(this.dom.circle, {
       x: this.position.x,
       y: this.position.y,
@@ -125,6 +126,12 @@ class Application {
   onMouseLeave = (e) => {
     console.log('circle leave')
     this.clearColor()
+  }
+
+  onResize = () => {
+    console.log('resize', window.innerWidth)
+    this.screen.width = window.innerWidth
+    this.screen.height = window.innerHeight
   }
 }
 
