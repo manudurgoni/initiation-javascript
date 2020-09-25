@@ -5,7 +5,7 @@
       <input type="submit" value="Ok">
     </form>
 
-    <v-result v-if="result"></v-result>
+    <v-result v-if="result" :city="result"></v-result>
   </div>
 </template>
 
