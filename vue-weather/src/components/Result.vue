@@ -20,17 +20,20 @@ export default {
       default: null
     }
   },
-  created() {},
-  mounted() {
-    console.log("la page est ready")
+  data() {
     
-    const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-      center: [-74.5, 40], // starting position [lng, lat]
-      zoom: 9 // starting zoom
-    });
-    console.log(map)
+  },
+  mounted() {
+    if (this.city) {
+      mapboxgl.accessToken = 'pk.eyJ1IjoibWFudWR1cmdvbmkiLCJhIjoiY2pxejVnOWdnMGEyNDQycG9tcTI3MDVlbCJ9.WPrLAimZF5EcdDGcHdQvMw';
+      // eslint-disable-next-line no-unused-vars
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [this.city.coord.lon, this.city.coord.lat],
+        zoom: 9
+      });
+    }
   }
 }
 </script>
