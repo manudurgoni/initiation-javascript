@@ -1,5 +1,5 @@
 <template>
-  <form class="Form">
+  <form class="Form" @submit.prevent="getWeatherByCity">
     <input type="text" placeholder="Selectionnez une ville" v-model="city">
     <input type="submit" value="Ok">
   </form>
@@ -9,7 +9,20 @@
 export default {
   data() {
     return {
-      city: null
+      city: null,
+      result: null
+    }
+  },
+
+  methods: {
+    async getWeatherByCity() {
+      console.log(this.city)
+
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=31e6e989590a80e12446183d2fc1d332&units=metric`
+
+      let response = await fetch(url)
+      let json = await response.json()
+      console.log(json)
     }
   }
 }
