@@ -2,15 +2,17 @@
   <div id="app">
     <div class="container">
       <h1>Hello Vue.js ☀️</h1>
-      <img src="https://media.giphy.com/media/VekcnHOwOI5So/giphy.gif" alt="">
+      <v-form></v-form>
     </div>
   </div>
 </template>
 
 <script>
+import VForm from './components/Form'
 export default {
   name: 'App',
   components: {
+    VForm
   }
 }
 </script>
